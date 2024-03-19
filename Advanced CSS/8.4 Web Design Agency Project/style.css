@@ -8,7 +8,7 @@ h1 {
   font-size: 5rem;
 }
 
-h1 span {
+.creative {
   color: #191970;
 }
 
@@ -51,7 +51,7 @@ footer {
   margin-right: 50px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
   
   img.logo {
     width: 100px;
