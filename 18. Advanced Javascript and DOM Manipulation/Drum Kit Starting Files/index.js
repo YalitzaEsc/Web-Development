@@ -1,10 +1,6 @@
 
-for(i = 0; i < document.querySelectorAll(".drum").length; i++){
-    document.querySelectorAll("button")[i].addEventListener("click", function(){
-    
-    var buttonPressed = this.innerHTML;
-
-    switch(buttonPressed){
+function pressed (e) {
+    switch(e){
 
         case "w":
             var tom1 = new Audio("./sounds/tom-1.mp3");
@@ -27,7 +23,7 @@ for(i = 0; i < document.querySelectorAll(".drum").length; i++){
         break;
 
         case "j":
-            var snare = new Audio("./sounds/snare.mp3.mp3");
+            var snare = new Audio("./sounds/snare.mp3");
             snare.play();
         break;
 
@@ -42,10 +38,17 @@ for(i = 0; i < document.querySelectorAll(".drum").length; i++){
         break;
 
         default:
-            console.log(buttonPressed);
+            console.log(e);
     }
+} 
 
 
-
+for(i = 0; i < document.querySelectorAll(".drum").length; i++){
+    document.querySelectorAll("button")[i].addEventListener("click", function(e){
+        pressed(e.innerHTML);
     });
 }
+
+    document.addEventListener("keydown", function(event){
+        pressed(event.key);
+    });
