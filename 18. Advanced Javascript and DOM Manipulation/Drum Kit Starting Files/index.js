@@ -44,11 +44,22 @@ function pressed (e) {
 
 
 for(i = 0; i < document.querySelectorAll(".drum").length; i++){
-    document.querySelectorAll("button")[i].addEventListener("click", function(e){
-        pressed(e.innerHTML);
-    });
+    document.querySelectorAll("button")[i].addEventListener("click", function(){
+        pressed(this.innerHTML);
+        buttonAnimation(this.innerHTML);
+ });
 }
 
-    document.addEventListener("keydown", function(event){
-        pressed(event.key);
-    });
+document.addEventListener("keydown", function(event){
+    pressed(event.key);
+    buttonAnimation(event.key);
+});
+
+function buttonAnimation(currentKey){
+    var activeKey = document.querySelector("." + currentKey);
+    activeKey.classList.add("pressed");
+    setTimeout(function(){
+        activeKey.classList.remove("pressed");
+    }, 100);
+
+    }
