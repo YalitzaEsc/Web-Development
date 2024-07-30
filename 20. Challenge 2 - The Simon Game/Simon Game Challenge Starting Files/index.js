@@ -1,6 +1,6 @@
 var pattern = [];
 var playPattern = [];
-var game = true;
+var game = false;
 
 function addRandom(){
     randomNumber = Math.floor((Math.random() * 4) + 1);
@@ -30,28 +30,96 @@ function addRandom(){
 
 
 function userTurn() {
+    //add next color 
     $(".btn").click(function(){
     playPattern.push(($(this).attr("id")));
+    //create animation
+    $(this).addClass("pressed");
+    setTimeout(function() {
+        $(".btn").removeClass("pressed");
+    }, 100);
     console.log(playPattern);
+
 });
 
 }
 
+function sound() {
+    $(".btn").on("click", function() {
+        
+        switch($(this).attr("id")){
+
+            case "blue":
+                var blue = new Audio("./sounds/blue.mp3");
+                blue.play();
+            break;
+
+            case "red":
+                var red = new Audio("./sounds/red.mp3");
+                red.play();
+            break;
+
+            case "yellow":
+                var yellow = new Audio("./sounds/yellow.mp3");
+                yellow.play();
+            break;
+
+            case "green":
+                var green = new Audio("./sounds/green.mp3");
+                green.play();
+            break;
+
+            default:
+                console.log($(this));
+
+        }
+
+    })
+}
+
 function verify(pattern, playPattern){
+    var level = 1;
     for(i = 0; i < pattern.length; i++){
         if(pattern[i] === playPattern[i]){
-            $("h1").text("Level " + (i+1));
+            $("h1").text("Level " + level + 1);
         } else {
             $("h1").text("Game Over, Press Any Key to Restart");
+            
+            $("body").addClass("game-over");
+            setTimeout(function(){
+                $("body").removeClass("game-over");
+            }, 300);
+
+            var gameOverSound = new Audio("./sounds/wrong.mp3");
+            gameOverSound.play();
+            game = false;
         }
-    }
-        
+    }    
 }
 
-function animation(){
-    for(i = 0; i < pattern.length; i++){
-        button = pattern[i];
+function play(){
+        $(document).on("keydown", function(){
+        game = true;
+        $("h1").text("Level 1");
+        sound();
 
-    }
+        while(game === true){
+            addRandom();
+            if(addRandom.length < userTurn.length){
+                userTurn();
+            } else {
+                verify(pattern, playPattern);
+            }
+
+        }
+
+        if (game === false){
+            level = 1;
+            pattern = [];
+            playPattern = [];
+        }
+    });
+    
 }
+
 
