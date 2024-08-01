@@ -1,6 +1,6 @@
 var pattern = [];
 var playPattern = [];
-var game = false;
+var game = true;
 
 function addRandom(){
     randomNumber = Math.floor((Math.random() * 4) + 1);
@@ -114,7 +114,7 @@ function verify(){
     var level = 1;
     for(i = 0; i < pattern.length; i++){
         if(pattern[i] === playPattern[i]){
-            $("h1").text("Level " + level + 1);
+            $("h1").text("Level " + ++level);
             return true;
         } else {
             $("h1").text("Game Over, Press Any Key to Restart");
@@ -131,20 +131,28 @@ function verify(){
     }    
 }
 
-function play(){
+
+while(game === true){
+        
+
+
+
+    
+}
+   
     $(document).on("keydown", function(){
     $("h1").text("Level 1");
     sound();
-        
     addRandom();
+    animationLevelUp();
     userTurn();
     if(pattern.length === playPattern.length){
         verify();
     } else {
-        userTurn8
+        userTurn();
     }
     });
     
-}
+
 
 
