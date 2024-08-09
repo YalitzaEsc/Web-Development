@@ -6,4 +6,4 @@ console.log("My name is " + sillyName);
 import generateSuperHero from "superheros";
 var superHero = generateSuperHero();
 
-console.log("My superhero name is " + superHero);
+console.log("My superhero is " + superHero);
