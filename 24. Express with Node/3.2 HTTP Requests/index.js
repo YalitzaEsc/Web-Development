@@ -11,7 +11,7 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-    res.send("This is my about page!")
+    res.send("This is my page!")
 });
 
 app.listen(port, () => {
