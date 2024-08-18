@@ -11,10 +11,17 @@ app.get("/", (req, res) => {
     res.render("index.ejs");
 })
 
-app.get("/submit", (req, res) => {
+var titles = [];
+var texts = [];
 
-    res.render("index.ejs", {message: req.text});
-})
+
+app.post("/submit", (req, res) => {
+
+    titles.push(req.body["title"]);
+    texts.push(req.body["text"]);
+
+    res.render("index.ejs", {titles: titles, texts: texts});
+});
 
 
 app.listen(port, () => {

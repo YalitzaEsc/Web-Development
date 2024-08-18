@@ -1,16 +1,24 @@
 
-<div class = "post">
-    <form action="/submit" method="POST">
-        <input type="text" name="text" placeholder="Write your post here...">
-        <input type="submit" value="Post">
-    </form>
-</div>
-
-<div>
-
+    <div class = "post">
+        <form action="/submit" method="POST">
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="text" placeholder="Write your post here...">
+            <input type="submit" value="Post">
+        </form>
+    </div>
     
-
-</div>
-
+    <div class = "posts-container">
 
 
+        <div class="posts-container">
+            <% if (titles && texts) { %>
+                <% for(let i = 0; i < titles.length; i++) { %>
+                    <h2><%= titles[i] %></h2>
+                    <p><%= texts[i] %></p>
+                <% } %>
+            <% } %>
+        </div>        
+        
+
+    </div>
+ 
