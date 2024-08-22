@@ -10,7 +10,7 @@
     
     <div class = "posts-container">
 
-            <% if (titles && texts) { %>
+            <% if (locals.titles && locals.texts) { %>
                 <% for(let i = 0; i <titles.length; i++) {%>
                     <div class = "single-post">
                         <h3 id = "title-<%= i %>" class = "title"> <%= titles[i] %> </h3>
