@@ -1,0 +1,53 @@
+nav {
+    padding: 10px;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.menu li {
+    float: right;
+}
+
+.menu li a {
+    display: block;
+    color: #b93232;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #f2c9c98d;
+}
+
+.title-square {
+    width: 500px;
+    height: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.paragraph-square {
+    width: 500px;
+    height: 100px;
+    margin: 0 0 10px 0;
+    border-radius: 5px;
+}
+
+.input {
+    width: 100px;
+    height: 10;
+    border-radius: 5px;
+}
+
+.post form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
