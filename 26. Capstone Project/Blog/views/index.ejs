@@ -15,8 +15,8 @@
                     <div class = "single-post">
                         <h3 id = "title-<%= i %>" class = "title"> <%= titles[i] %> </h3>
                         <p id = "paragraph-<%= i %>" class = "text"> <%= texts[i] %> </p> 
-                        <button onclick = "makeEditable('<%= i %>')" class = "btn">Edit</button>
-                        <button onclick = "deletePost('<%= i %>')" class = "btn">Delete</button>
+                        <button id = "edit-<%= i %>" class = "btn edit">Edit</button>
+                        <button id = "<%= i %>" class = "btn delete">Delete</button>
                     </div>
                     
                 <%}%>
