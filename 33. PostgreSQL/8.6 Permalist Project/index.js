@@ -37,13 +37,19 @@ app.get("/", async (req, res) => {
   });
 });
 
-app.post("/add", (req, res) => {
+app.post("/add", async (req, res) => {
   const item = req.body.newItem;
-  items.push({ title: item });
+  await db.query("INSERT INTO items (title) VALUES ($1)", [item]);
   res.redirect("/");
 });
 
-app.post("/edit", (req, res) => {});
+app.post("/edit", async (req, res) => {
+  const item_title = req.body.updatedItemTitle;
+  const item_id = req.body.updatedItemId;
+
+  await db.query("UPDATE items SET title = $1 WHERE id = $2", [item_title, item_id]);
+  res.redirect("/");
+});
 
 app.post("/delete", (req, res) => {});
 
