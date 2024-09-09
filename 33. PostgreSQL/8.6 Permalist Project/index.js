@@ -28,7 +28,7 @@ db.connect((err) =>{
 
 app.get("/", async (req, res) => {
 
-  const consulta = await db.query("SELECT * FROM items");
+  const consulta = await db.query("SELECT * FROM items ORDER BY id ASC");
   let items = consulta.rows;
 
   res.render("index.ejs", {
